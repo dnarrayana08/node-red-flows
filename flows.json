@@ -1,0 +1,965 @@
+[
+    {
+        "id": "509d1b9b92a63e42",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b3b4010c3ca35ef1",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "a63c21a93e8bfb3a",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3e730795e389a51f",
+        "type": "ui_tab",
+        "name": "Room1",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "dac891301ea41737",
+        "type": "ui_group",
+        "name": "AC and Light Data",
+        "tab": "3e730795e389a51f",
+        "order": 2,
+        "disp": true,
+        "width": "19",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d7c9f939d0c2f284",
+        "type": "telegram bot",
+        "botname": "(My IoT Bot)",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "b59bc223c341e0d8",
+        "type": "mqtt in",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "topic": "room1/sensor",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "a63c21a93e8bfb3a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "5adcf544a3d73fe7",
+                "5d4173ad71349529",
+                "189a51d758be643f",
+                "e0a513cf02baa525",
+                "f43cba42f39ae0e2",
+                "d07578ac2e456579",
+                "b9c4559c03e3e212",
+                "517578ce365346d2"
+            ]
+        ]
+    },
+    {
+        "id": "5adcf544a3d73fe7",
+        "type": "debug",
+        "z": "509d1b9b92a63e42",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6c92f09d73a582e3",
+        "type": "mqtt in",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "topic": "room1/alert",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "a63c21a93e8bfb3a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 500,
+        "wires": [
+            [
+                "bf8df87f0246e1ad",
+                "413985c76841d61d"
+            ]
+        ]
+    },
+    {
+        "id": "bf8df87f0246e1ad",
+        "type": "function",
+        "z": "509d1b9b92a63e42",
+        "name": "function 2",
+        "func": "// Make sure payload is an object\nlet alert = msg.payload;\n\nif (typeof alert === 'string') {\n    // If payload is still a string, parse it\n    alert = JSON.parse(alert);\n}\n\nmsg.payload = `⚠️ ALERT: AC is ${alert.ac}, Light is ${alert.light}, Message: ${alert.message}`;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 560,
+        "wires": [
+            [
+                "c24280d4756e8264"
+            ]
+        ]
+    },
+    {
+        "id": "c24280d4756e8264",
+        "type": "ui_toast",
+        "z": "509d1b9b92a63e42",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 820,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "5d4173ad71349529",
+        "type": "function",
+        "z": "509d1b9b92a63e42",
+        "name": "function 1",
+        "func": "let data = msg.payload;\n\nlet line = `Temp=${data.temperature}°C, Humidity=${data.humidity}%, LDR=${data.ldr}, AC=${data.ac}, Light=${data.light}, Time=${data.timestamp}\\n`;\n\n// Get previous log or start empty\nlet log = flow.get('sensorLog') || '';\nlog += line;\n\n// Limit log length (optional)\nif (log.length > 1000) {\n  log = log.slice(log.length - 1000);\n}\n\nflow.set('sensorLog', log);\nmsg.payload = log;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 120,
+        "wires": [
+            [
+                "d7834bf937af8480"
+            ]
+        ]
+    },
+    {
+        "id": "d7834bf937af8480",
+        "type": "debug",
+        "z": "509d1b9b92a63e42",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "189a51d758be643f",
+        "type": "function",
+        "z": "509d1b9b92a63e42",
+        "name": "Prepare CSV",
+        "func": "msg.payload = {\n    Time: msg.payload.timestamp,\n    Temperature: msg.payload.temperature,\n    Humidity: msg.payload.humidity,\n    LDR: msg.payload.ldr,\n    AC: msg.payload.ac,\n    Light: msg.payload.light\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 500,
+        "wires": [
+            [
+                "036527d8d118385a"
+            ]
+        ]
+    },
+    {
+        "id": "5fe2ace1a59f103c",
+        "type": "telegram receiver",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "bot": "d7c9f939d0c2f284",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": true,
+        "inputs": 1,
+        "handleallupdates": true,
+        "x": 290,
+        "y": 760,
+        "wires": [
+            [
+                "c563d7b9b9013294",
+                "7970f4e09e3c7dcc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "036527d8d118385a",
+        "type": "csv",
+        "z": "509d1b9b92a63e42",
+        "name": "sensor_data.csv",
+        "spec": "rfc",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "Time,Temperature,Humidity,LDR,AC,Light",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 720,
+        "y": 500,
+        "wires": [
+            [
+                "ca90b1eff022b940"
+            ]
+        ]
+    },
+    {
+        "id": "9995e72c3af9ba4d",
+        "type": "telegram sender",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "bot": "d7c9f939d0c2f284",
+        "haserroroutput": true,
+        "outputs": 2,
+        "x": 1090,
+        "y": 620,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "413985c76841d61d",
+        "type": "function",
+        "z": "509d1b9b92a63e42",
+        "name": "Alert message",
+        "func": "// Example chat IDs you want to send to\nconst chatIds = [1404169199, 1422852349, 588916195];\n\n// Compose alert content\nconst content = `⚠️ ALERT!\\nAC: ${msg.payload.ac}\\nLight: ${msg.payload.light}\\nMessage: ${msg.payload.message}`;\n\n// Create an array of message objects for each chatId\nconst messages = chatIds.map(id => ({\n    payload: {\n        chatId: id,\n        type: \"message\",\n        content: content\n    }\n}));\n\n// Return array of messages — Node-RED will send all of them\nreturn [messages];\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 620,
+        "wires": [
+            [
+                "9995e72c3af9ba4d"
+            ]
+        ]
+    },
+    {
+        "id": "ca90b1eff022b940",
+        "type": "file",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "filename": "sensor_data.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 960,
+        "y": 500,
+        "wires": [
+            [
+                "a1d688ab47a4c3e6"
+            ]
+        ]
+    },
+    {
+        "id": "a1d688ab47a4c3e6",
+        "type": "debug",
+        "z": "509d1b9b92a63e42",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e83e3225eb587857",
+        "type": "function",
+        "z": "509d1b9b92a63e42",
+        "name": "/sendfile",
+        "func": "const chatId = msg.payload.chatId || msg.originalMessage?.chat.id || msg.payload?.chat?.id;\nmsg.payload = {\n  chatId: chatId,\n  type: \"document\",\n  content: \"C:\\\\Users\\\\ACER\\\\sensor_data.csv\"  // Ensure this path is correct and accessible\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 760,
+        "wires": [
+            [
+                "9995e72c3af9ba4d"
+            ]
+        ]
+    },
+    {
+        "id": "c563d7b9b9013294",
+        "type": "switch",
+        "z": "509d1b9b92a63e42",
+        "name": "/sendfile",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "/sendfile",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 760,
+        "wires": [
+            [
+                "e83e3225eb587857"
+            ]
+        ]
+    },
+    {
+        "id": "e0a513cf02baa525",
+        "type": "function",
+        "z": "509d1b9b92a63e42",
+        "name": "process sensor data",
+        "func": "let data = msg.payload;\n\n// Ensure numbers\nmsg.temperature = Number(data.temperature);\nmsg.humidity = Number(data.humidity);\n\n// Status text (explicit comparison)\nmsg.acStatus = (data.ac === \"ON\") ? \"ON\" : \"OFF\";\nmsg.lightStatus = (data.light === \"ON\") ? \"ON\" : \"OFF\";\n\n// Timestamp\nmsg.timestamp = new Date().toLocaleTimeString();\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "9878dfbb36fd480a",
+                "e34cd44c048a7094",
+                "c4a589ca031d3f8b",
+                "ffdfd79c6ad1f5e4",
+                "198ed9180bab559f"
+            ]
+        ]
+    },
+    {
+        "id": "9878dfbb36fd480a",
+        "type": "change",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 140,
+        "wires": [
+            [
+                "e4f45f36489e0ef1"
+            ]
+        ]
+    },
+    {
+        "id": "e34cd44c048a7094",
+        "type": "change",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.humidity",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 180,
+        "wires": [
+            [
+                "38895cf3de596831"
+            ]
+        ]
+    },
+    {
+        "id": "c4a589ca031d3f8b",
+        "type": "change",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.acStatus",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 220,
+        "wires": [
+            [
+                "9e63d12b69d24f91"
+            ]
+        ]
+    },
+    {
+        "id": "ffdfd79c6ad1f5e4",
+        "type": "change",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.lightStatus",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 260,
+        "wires": [
+            [
+                "0db1020db72a768a",
+                "717b35268068a6c0"
+            ]
+        ]
+    },
+    {
+        "id": "9e63d12b69d24f91",
+        "type": "ui_text",
+        "z": "509d1b9b92a63e42",
+        "group": "dac891301ea41737",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "AC Status",
+        "format": "{{msg.acStatus}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1060,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "717b35268068a6c0",
+        "type": "ui_text",
+        "z": "509d1b9b92a63e42",
+        "group": "dac891301ea41737",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Light Status",
+        "format": "{{msg.lightStatus}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1070,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e4f45f36489e0ef1",
+        "type": "ui_gauge",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "group": "dac891301ea41737",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature (°C)",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1070,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "38895cf3de596831",
+        "type": "ui_gauge",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "group": "dac891301ea41737",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity %",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1050,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "aa29f021e8277524",
+        "type": "ui_gauge",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "group": "dac891301ea41737",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Lux",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "3500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "198ed9180bab559f",
+        "type": "change",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.ldr",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 100,
+        "wires": [
+            [
+                "aa29f021e8277524"
+            ]
+        ]
+    },
+    {
+        "id": "7970f4e09e3c7dcc",
+        "type": "debug",
+        "z": "509d1b9b92a63e42",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "f43cba42f39ae0e2",
+        "type": "ui_button",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "group": "dac891301ea41737",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Turn Light ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"light\": \"ON\"}",
+        "payloadType": "json",
+        "topic": "room1/command",
+        "topicType": "str",
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "7672c01f062a8049"
+            ]
+        ]
+    },
+    {
+        "id": "517578ce365346d2",
+        "type": "ui_button",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "group": "dac891301ea41737",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Turn AC OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"ac\": \"OFF\"}",
+        "payloadType": "json",
+        "topic": "room1/command",
+        "topicType": "str",
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "7672c01f062a8049"
+            ]
+        ]
+    },
+    {
+        "id": "d07578ac2e456579",
+        "type": "ui_button",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "group": "dac891301ea41737",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Turn Light OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"light\": \"OFF\"}",
+        "payloadType": "json",
+        "topic": "room1/command",
+        "topicType": "str",
+        "x": 720,
+        "y": 340,
+        "wires": [
+            [
+                "7672c01f062a8049"
+            ]
+        ]
+    },
+    {
+        "id": "b9c4559c03e3e212",
+        "type": "ui_button",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "group": "dac891301ea41737",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Turn AC ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"ac\": \"ON\"}",
+        "payloadType": "json",
+        "topic": "room1/command",
+        "topicType": "str",
+        "x": 710,
+        "y": 380,
+        "wires": [
+            [
+                "7672c01f062a8049"
+            ]
+        ]
+    },
+    {
+        "id": "7672c01f062a8049",
+        "type": "mqtt out",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "topic": "room1/command",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a63c21a93e8bfb3a",
+        "x": 950,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "0db1020db72a768a",
+        "type": "debug",
+        "z": "509d1b9b92a63e42",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "af8d20a2c7eedf22",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-telegrambot": "17.0.3"
+        }
+    }
+]
