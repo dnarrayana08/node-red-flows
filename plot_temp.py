@@ -20,4 +20,4 @@ plt.ylabel("°C")
 plt.xticks(rotation=45)
 plt.tight_layout()
 
-plt.savefig("temp_chart.png")
+plt.savefig("data/temp_chart.png")
