@@ -1,22 +1,23 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Read CSV
-df = pd.read_csv("/data/sensor_data.csv")
+# Read CSV WITHOUT header
+df = pd.read_csv(
+    "data/sensor_data.csv",
+    header=None,
+    names=["Time", "Temperature", "Humidity", "LDR", "AC", "Light"]
+)
 
-# Convert columns
+# Convert Time to datetime
 df["Time"] = pd.to_datetime(df["Time"])
-df["Temp"] = df["Temp"].astype(float)
 
 # Plot
 plt.figure(figsize=(8,4))
-plt.plot(df["Time"], df["Temp"], marker="o")
-plt.title("Temperature Over Time")
+plt.plot(df["Time"], df["Temperature"], marker="o")
+plt.title("Temperature")
 plt.xlabel("Time")
-plt.ylabel("Temperature (°C)")
-plt.grid(True)
-
-# Save image
+plt.ylabel("°C")
+plt.xticks(rotation=45)
 plt.tight_layout()
-plt.savefig("/data/temp_chart.png")
-plt.close()
+
+plt.savefig("temp_chart.png")
