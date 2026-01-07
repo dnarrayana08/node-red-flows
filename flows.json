@@ -276,7 +276,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 1160,
@@ -819,9 +820,49 @@
         "wires": [
             [],
             [
-                "9995e72c3af9ba4d"
+                "9e3f2e5e176c33f4"
             ],
             []
+        ]
+    },
+    {
+        "id": "9e3f2e5e176c33f4",
+        "type": "file in",
+        "z": "509d1b9b92a63e42",
+        "name": "",
+        "filename": "data/temp_chart.png",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "binary",
+        "allProps": false,
+        "x": 1140,
+        "y": 800,
+        "wires": [
+            [
+                "e86fbd93be273266"
+            ]
+        ]
+    },
+    {
+        "id": "e86fbd93be273266",
+        "type": "function",
+        "z": "509d1b9b92a63e42",
+        "name": "/temp",
+        "func": "const chatId = msg.payload.chatId\n    || msg.originalMessage?.chat.id\n    || msg.payload?.chat?.id;\n\nmsg.payload = {\n    chatId: chatId,\n    type: \"photo\",\n    content: \"/data/temp_chart.png\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1230,
+        "y": 720,
+        "wires": [
+            [
+                "9995e72c3af9ba4d"
+            ]
         ]
     },
     {
